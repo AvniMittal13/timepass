@@ -1,0 +1,11 @@
+{
+    "tool_name": "summarize_objects",
+    "tool_description": "Summarizes a list of objects. The logic of how to summarize a particular object type is an internal implementation detail.",
+    "arguments": [
+        {
+            "arguments_name": "objects",
+            "arguments_description": "List of objects to summarize",
+            "arguments_type": "array of objects"
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "tool_name": "get_similar_work_items",
+    "tool_description": "Returns a list of work items that are similar to the given work item",
+    "arguments": [
+        {
+            "arguments_name": "work_id",
+            "arguments_description": "The ID of the work item for which you want to find similar items",
+            "arguments_type": "string"
+        }
+    ]
+}

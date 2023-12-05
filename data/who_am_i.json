@@ -1,0 +1,5 @@
+{
+    "tool_name": "who_am_i",
+    "tool_description": "Returns the ID of the current user",
+    "arguments": []
+}

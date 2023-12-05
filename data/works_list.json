@@ -1,0 +1,71 @@
+{
+    "tool_name": "works_list",
+    "tool_description": "Returns a list of work items matching the request",
+    "arguments": [
+        {
+            "arguments_name": "applies_to_part",
+            "arguments_description": "Filters for work belonging to any of the provided parts",
+            "arguments_type": "array of strings",
+            "argument_value_example": ["FEAT-123", "ENH-123", "PROD-123", "CAPL-123"]
+        },
+        {
+            "arguments_name": "created_by",
+            "arguments_description": "Filters for work created by any of these users",
+            "arguments_type": "array of strings",
+            "argument_value_example": ["DEVU-123"]
+        },
+        {
+            "arguments_name": "issue.priority",
+            "arguments_description": "Filters for issues with any of the provided priorities. Allowed values: p0, p1, p2, p3",
+            "arguments_type": "array of strings"
+        },
+        {
+            "arguments_name": "issue.rev_orgs",
+            "arguments_description": "Filters for issues with any of the provided Rev organizations",
+            "arguments_type": "array of strings",
+            "argument_value_example": ["REV-123"]
+        },
+        {
+            "arguments_name": "limit",
+            "arguments_description": "The maximum number of works to return. The default is '50'",
+            "arguments_type": "integer (int32)"
+        },
+        {
+            "arguments_name": "owned_by",
+            "arguments_description": "Filters for work owned by any of these users",
+            "arguments_type": "array of strings",
+            "argument_value_example": ["DEVU-123"]
+        },
+        {
+            "arguments_name": "stage.name",
+            "arguments_description": "Filters for records in the provided stage(s) by name",
+            "arguments_type": "array of strings"
+        },
+        {
+            "arguments_name": "ticket.needs_response",
+            "arguments_description": "Filters for tickets that need a response",
+            "arguments_type": "boolean"
+        },
+        {
+            "arguments_name": "ticket.rev_org",
+            "arguments_description": "Filters for tickets associated with any of the provided Rev organizations",
+            "arguments_type": "array of strings",
+            "argument_value_example": ["REV-123"]
+        },
+        {
+            "arguments_name": "ticket.severity",
+            "arguments_description": "Filters for tickets with any of the provided severities. Allowed values: blocker, high,low, medium",
+            "arguments_type": "array of strings"
+        },
+        {
+            "arguments_name": "ticket.source_channel",
+            "arguments_description": "Filters for tickets with any of the provided source channels",
+            "arguments_type": "array of strings"
+        },
+        {
+            "arguments_name": "type",
+            "arguments_description": "Filters for work of the provided types. Allowed values: issue, ticket, task",
+            "arguments_type": "array of strings"
+        }
+    ]
+}

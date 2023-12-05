@@ -1,0 +1,11 @@
+{
+    "tool_name": "search_object_by_name",
+    "tool_description": "Given a search string, returns the id of a matching object in the system of record. If multiple matches are found, it returns the one where the confidence is highest.",
+    "arguments": [
+        {
+            "arguments_name": "query",
+            "arguments_description": "The search string, could be for example customer’s name, part name, user name.",
+            "arguments_type": "string"
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "tool_name": "add_work_items_to_sprint",
+    "tool_description": "Adds the given work items to the sprint",
+    "arguments": [
+        {
+            "arguments_name": "work_ids",
+            "arguments_description": "A list of work item IDs to be added to the sprint",
+            "arguments_type": "array of strings"
+        },
+        {
+            "arguments_name": "sprint_id",
+            "arguments_description": "The ID of the sprint to which the work items should be added",
+            "arguments_type": "str"
+        }
+    ]
+}

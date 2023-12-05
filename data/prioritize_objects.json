@@ -1,0 +1,11 @@
+{
+    "tool_name": "prioritize_objects",
+    "tool_description": "Returns a list of objects sorted by priority. The logic of what constitutes priority for a given object is an internal implementation detail.",
+    "arguments": [
+        {
+            "arguments_name": "objects",
+            "arguments_description": "A list of objects to be prioritized",
+            "arguments_type": "array of objects"
+        }
+    ]
+}
