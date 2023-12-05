@@ -1,6 +1,6 @@
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
-from langchain.document_loaders import JSONLoader , DirectoryLoader
+from langchain.document_loaders import JSONLoader , DirectoryLoader, TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter 
 
 DATA_PATH = 'data/'
@@ -10,7 +10,7 @@ DB_FAISS_PATH = 'vectorstore/db_faiss'
 def create_vector_db():
     loader = DirectoryLoader(DATA_PATH,
                              glob='*.json',
-                             loader_cls=JSONLoader)
+                             loader_cls=TextLoader)
 
     documents = loader.load()
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500,
