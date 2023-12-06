@@ -1,5 +1,6 @@
 {
     "tool_name": "search_object_by_name",
+    "details" : "The tool is a straightforward utility that takes a search string as an argument and returns the identifier of a matching object within the system of record. If there are multiple matches, the tool selects the one with the highest confidence level. The only argument it requires is 'query', a string parameter representing the search string. This search string could be, for example, a customer's name, part name, or user name.",
     "tool_description": "Given a search string, returns the id of a matching object in the system of record. If multiple matches are found, it returns the one where the confidence is highest.",
     "arguments": [
         {

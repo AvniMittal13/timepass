@@ -54,7 +54,7 @@ def load_llm():
     # Load the locally downloaded model here
     llm = CTransformers(
         model = "TheBloke/Llama-2-7B-Chat-GGML",
-        model_type="llama",
+        model_file ="llama-2-7b-chat.ggmlv3.q8_0.bin",
         max_new_tokens = 512,
         temperature = 0.5
     )

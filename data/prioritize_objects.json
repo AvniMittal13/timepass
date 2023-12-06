@@ -1,5 +1,6 @@
 {
     "tool_name": "prioritize_objects",
+    "prioritize_objects" : "The tool generates a sorted list of objects based on an internal priority logic, the details of which are unspecified. It takes a single argument, 'objects', which should be provided as an array of objects. The tool is designed to offer a straightforward means of organizing and ranking objects without disclosing the specific criteria used for prioritization.",
     "tool_description": "Returns a list of objects sorted by priority. The logic of what constitutes priority for a given object is an internal implementation detail.",
     "arguments": [
         {

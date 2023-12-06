@@ -1,5 +1,6 @@
 {
     "tool_name": "works_list",
+    "details" : "The tool is designed to retrieve a list of work items based on specific criteria. This tool allows users to filter works by parts, created by particular users, associated with defined priorities, belonging to specific Rev organizations, owned by designated users, in particular stages, requiring a response, linked to Rev organizations, or exhibiting specified severities and source channels. Users can also limit the number of returned works. The tool accommodates an array of argument types, including arrays of strings for parts, created_by, issue.rev_orgs, owned_by, stage.name, ticket.rev_org, ticket.severity, ticket.source_channel, and type. Additionally, it supports boolean filtering for ticket.needs_response and integer-based limitation through the 'limit' argument. This tool proves versatile in managing and extracting relevant information from a pool of diverse work items, enhancing efficiency in tracking and organizing tasks, issues, and tickets within a specified context",
     "tool_description": "Returns a list of work items matching the request",
     "arguments": [
         {

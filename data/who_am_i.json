@@ -1,5 +1,6 @@
 {
     "tool_name": "who_am_i",
+    "who_am_i" : "The tool is designed to retrieve the ID of the current user. It operates without any arguments, keeping its functionality simple and straightforward. Users can quickly execute the tool to obtain their user ID without the need for additional input parameters.",
     "tool_description": "Returns the ID of the current user",
     "arguments": []
 }
