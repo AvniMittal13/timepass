@@ -1,6 +1,7 @@
 {
     "tool_name": "summarize_objects",
     "details" : "The tool is designed to provide a concise summary of a given list of objects. The internal logic governing the summarization process for each specific object type is considered an implementation detail, abstracted from the user. The primary argument for this tool is 'objects', which is specified as an array of objects. Users are required to input a list of objects that they wish to be summarized. The purpose of this tool is to summarize for diverse sets of objects, offering a solution for various data summarization needs",
+    "return_type": "list of strings or list of objects (object summary)",
     "tool_description": "Summarizes a list of objects. The logic of how to summarize a particular object type is an internal implementation detail.",
     "arguments": [
         {

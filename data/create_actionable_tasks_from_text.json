@@ -1,6 +1,7 @@
 {
     "tool_name": "create_actionable_tasks_from_text",
     "details" : "The tool serves to analyze a given text, extract actionable insights, and subsequently create corresponding tasks. These tasks, acting as work items, are created in response to the identified insights within the provided text. The primary argument for the tool is 'text', representing the input text from which both actionable insights and associated tasks are derived.",
+    "return_type": "list of obejcts (work items)",
     "tool_description": "Given a text, extracts actionable insights, and creates tasks for them, which are kind of a work item.",
     "arguments": [
         {

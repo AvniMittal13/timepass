@@ -2,9 +2,14 @@ from langchain.document_loaders import PyPDFLoader, DirectoryLoader
 from langchain import PromptTemplate
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
-from langchain.llms import CTransformers
+from langchain.llms import CTransformers, HuggingFacePipeline
 from langchain.chains import RetrievalQA
 import chainlit as cl
+import torch
+from torch import cuda, bfloat16
+import transformers
+from transformers import StoppingCriteria, StoppingCriteriaList
+
 
 DB_FAISS_PATH = 'vectorstore/db_faiss'
 
@@ -49,15 +54,66 @@ def retrieval_qa_chain(llm, prompt, db):
                                        )
     return qa_chain
 
+
+# define custom stopping criteria object
+
+
+
+def create_pipeline():
+    device = f'cuda:{cuda.current_device()}' if cuda.is_available() else 'cpu'
+
+    model = transformers.AutoModelForCausalLM.from_pretrained(
+        'mosaicml/mpt-7b-instruct',
+        trust_remote_code=True,
+        torch_dtype=bfloat16,
+        max_seq_len=2048
+    )
+    model.eval()
+    model.to(device)
+    print(f"Model loaded on {device}")
+
+    tokenizer = transformers.AutoTokenizer.from_pretrained("EleutherAI/gpt-neox-20b")
+
+    stop_token_ids = tokenizer.convert_tokens_to_ids(["<|endoftext|>"])
+
+    class StopOnTokens(StoppingCriteria):
+        def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor, **kwargs) -> bool:
+            for stop_id in stop_token_ids:
+                if input_ids[0][-1] == stop_id:
+                    return True
+            return False
+        
+    stopping_criteria = StoppingCriteriaList([StopOnTokens()])
+
+    generate_text = transformers.pipeline(
+        model=model, tokenizer=tokenizer,
+        return_full_text=True,  # langchain expects the full text
+        task='text-generation',
+        device=device,
+        # we pass model parameters here too
+        stopping_criteria=stopping_criteria,  # without this model will ramble
+        temperature=0.1,  # 'randomness' of outputs, 0.0 is the min and 1.0 the max
+        top_p=0.15,  # select from top tokens whose probability add up to 15%
+        top_k=0,  # select from top 0 tokens (because zero, relies on top_p)
+        max_new_tokens=64,  # mex number of tokens to generate in the output
+        repetition_penalty=1.1  # without this output begins repeating
+    )
+
+    return generate_text
+
+
 #Loading the model
 def load_llm():
     # Load the locally downloaded model here
-    llm = CTransformers(
-        model = "TheBloke/Llama-2-7B-Chat-GGML",
-        model_file ="llama-2-7b-chat.ggmlv3.q8_0.bin",
-        max_new_tokens = 512,
-        temperature = 0.5
-    )
+    generate_text = create_pipeline()
+    # llm = CTransformers(
+    #     model = "TheBloke/Llama-2-7B-Chat-GGML",
+    #     model_file ="llama-2-7b-chat.ggmlv3.q8_0.bin",
+    #     max_new_tokens = 512,
+    #     temperature = 0.5
+    # )
+    llm = HuggingFacePipeline(pipeline=generate_text)
+
     return llm
 
 #QA Model Function

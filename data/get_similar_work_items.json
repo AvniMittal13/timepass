@@ -1,6 +1,7 @@
 {
     "tool_name": "get_similar_work_items",
     "details" : "The tool is designed to return a list of work items similar to a specified one. It takes a single argument, 'work_id', which is the identifier of the target work item. This identifier, a string type, is used to pinpoint the item for which the user wants to find related items. The tool essentially streamlines the process of identifying similar work items, aiding in efficient workflow management.",
+    "return_type": "list of objects (work items)",
     "tool_description": "Returns a list of work items that are similar to the given work item",
     "arguments": [
         {

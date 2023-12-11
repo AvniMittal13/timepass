@@ -1,6 +1,7 @@
 {
     "tool_name": "add_work_items_to_sprint",
     "details": "The tool serves the purpose of adding specified work items into a designated sprint. Its functionality involves the addition of work items, identified by a list of work item IDs, to a sprint that is specified by its unique sprint ID. The 'work_ids' argument expects an array of strings representing the IDs of the work items intended for adding, while the 'sprint_id' argument requires a single string denoting the target sprint. This tool streamlines the process of managing and organizing work within a sprint by facilitating the addition of identified work items to the specified sprint.",
+    "return_type": "None",
     "tool_description": "Adds the given work items to the sprint",
     "arguments": [
         {

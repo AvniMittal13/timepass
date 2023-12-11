@@ -1,6 +1,7 @@
 {
     "tool_name": "get_sprint_id",
-    "get_sprint_id" : "The tool is designed to retrieve the ID of the current sprint. Users can quickly obtain the unique identifier associated with the ongoing sprint without the need for additional parameters.",
+    "details" : "The tool is designed to retrieve the ID of the current sprint. Users can quickly obtain the unique identifier associated with the ongoing sprint without the need for additional parameters.",
+    "return_type": "string or integer",
     "tool_description": "Returns the ID of the current sprint",
     "arguments": []
 }
